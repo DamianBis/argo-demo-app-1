@@ -1,6 +1,7 @@
 variable "clusterId" {}
 variable "vpcId" {}
 variable "environmentName" {}
+variable "imageTag" {}
 
 resource "aws_iam_role" "ecsTaskExecutionRole" {
   name               = "${var.app_name}-execution-task-role"
@@ -33,7 +34,7 @@ resource "aws_ecs_task_definition" "service" {
   container_definitions = jsonencode([
     {
       name      = "first"
-      image     = "ghcr.io/damianbis/argo-demo-app-1:sha-b3b5f6a"
+      image     = "ghcr.io/damianbis/argo-demo-app-1:${var.imageTag}"
       cpu       = 10
       memory    = 512
       essential = true
