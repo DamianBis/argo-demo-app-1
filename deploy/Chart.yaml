@@ -1,0 +1,4 @@
+apiVersion: v2
+name: applications
+description: Cashrewards applications
+version: 1.0.0

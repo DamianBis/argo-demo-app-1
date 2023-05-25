@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-demo-app-{{ .Values.environmentName }}
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: prelive
+  syncPolicy:
+    syncOptions:
+      - FluxSubsystem=true
+      - CreateNamespace=true
+      - AutoCreateFluxResources=true
+      - ApplyOutOfSyncOnly=true
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
+  destination:
+    namespace: dev
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    repoURL: https://damianbis.github.io/helm-charts/
+    targetRevision: 0.3.0
+    chart: terraform
+    helm:
+      values: |
+        git:
+          url: https://github.com/DamianBis/argo-demo-app-1.git
+          path: ./deploy/
+        environmentName: {{ .Values.environmentName }}
+        tfValues: {{ .Values.tfValues }}
