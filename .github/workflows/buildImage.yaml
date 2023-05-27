@@ -49,6 +49,8 @@ jobs:
       - name: Update git SHA in values file
         run: |
           sed -i "s/imageTag: \".*\"/imageTag: \"${GITHUB_SHA}\"/g" ./deploy/values-staging.yaml
+          git config user.email "bot_user@example.com"
+          git config user.name "Bot User"
           git add .
           git commit -m "Auto updating values.yaml"
           git push
