@@ -50,10 +50,4 @@ jobs:
         run: |
           sed -i "s/imageTag: \".*\"/imageTag: \"${GITHUB_SHA}\"/g" ./deploy/values-staging.yaml
           
-      - name: Commit & Push
-        uses: Andro999b/push@v1.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          message: 'Overwritten by Github Actions - ${date}'
-
+      - uses: stefanzweifel/git-auto-commit-action@v4
