@@ -1,9 +1,6 @@
 name: Create and publish a Docker image
 
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+permissions: write-all
 
 on:
   push:
