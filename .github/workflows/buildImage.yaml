@@ -4,6 +4,8 @@ name: Create and publish a Docker image
 on:
   push:
     branches: ['main']
+    paths-ignore:
+      - deploy/**
 
 env:
   REGISTRY: ghcr.io
@@ -43,3 +45,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Update git SHA in values file
+        run: |
+          sed "s/imageTag=.*/imageTag=${GITHUB_SHA}/g"
+          git add .
+          git commit -m "Auto updating values.yaml"
+          git push
