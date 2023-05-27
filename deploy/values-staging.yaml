@@ -1,0 +1,3 @@
+environmentName: "staging"
+tfValues: 
+  bucket_prefix: "staging-bucket"
