@@ -1,4 +1,4 @@
 environmentName: "staging"
-imageTag: "25167e36318150c715a1fae6c6e110cc294d034c"
+imageTag: ""
 tfValues: 
   bucket_prefix: "staging-bucket"
