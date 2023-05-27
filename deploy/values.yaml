@@ -1,1 +1,3 @@
-environmentName: default
+environmentName: "prod"
+tfValues:
+  bucket_prefix: "prod-bucket"
