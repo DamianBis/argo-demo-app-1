@@ -45,6 +45,6 @@ jobs:
 
       - name: Update git SHA in values file
         run: |
-          sed -i "s/imageTag: \".*\"/imageTag: \"${GITHUB_SHA}\"/g" ./deploy/values-staging.yaml
+          sed -i "s/imageTag: \".*\"/imageTag: \"sha-${GITHUB_SHA}\"/g" ./deploy/values-staging.yaml
           
       - uses: stefanzweifel/git-auto-commit-action@v4
