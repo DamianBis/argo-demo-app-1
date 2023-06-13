@@ -29,7 +29,7 @@ spec:
       values: |
         git:
           url: https://github.com/DamianBis/argo-demo-app-1.git
-          path: ./deploy/
+          path: ./terraform/
         sha: {{ .Values.sha }}
         environmentName: {{ .Values.environmentName }}
         tfValues: {{ .Values.tfValues }}
