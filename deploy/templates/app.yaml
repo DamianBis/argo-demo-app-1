@@ -18,7 +18,7 @@ spec:
       allowEmpty: true
       selfHeal: true
   destination:
-    namespace: argocd
+    namespace: flux-system
     server: 'https://kubernetes.default.svc'
   project: default
   source:
