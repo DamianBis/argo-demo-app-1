@@ -1,0 +1,4 @@
+environmentName: "uat"
+sha: "fbf7f71e58675b1fc64303de6bec65ab08651f2a"
+tfValues: 
+  bucket_prefix: "uat-bucket"
